@@ -1,0 +1,37 @@
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	<form class="well span8">
+        <div class="row">
+            <div class="span3">
+                <select class="span3" id="tablename" name="tablename">
+                    <option selected value="na">
+                        Choose One:
+                    </option>
+    
+                    <option value="jobevent">
+                        jobevent
+                    </option>
+    
+                    <option value="jobparm">
+                        jobparm
+                    </option>
+                </select>
+                
+                <label>loadeventid</label> <input class="span3" placeholder=
+                "loadeventid" type="text"> 
+                <label>jobcd</label> <input class="span3" placeholder=
+                "jobcd" type="text"> 
+                
+                <label>comments</label> 
+                <textarea class="input-large span5" id="message" name="message"
+                rows="5">
+    </textarea>
+            </div><button class="btn btn-primary pull-right" type=
+            "submit">Send</button>
+        </div>
+    </form>
+</div>
