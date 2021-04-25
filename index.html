@@ -22,16 +22,51 @@
                 </select>
                 
                 <label>loadeventid</label> <input class="span3" placeholder=
-                "loadeventid" type="text"> 
+                "loadeventid" type="text" id="jobeventid"> 
                 <label>jobcd</label> <input class="span3" placeholder=
-                "jobcd" type="text"> 
+                "jobcd" type="text" id="jobcd"> 
                 
                 <label>comments</label> 
                 <textarea class="input-large span5" id="message" name="message"
                 rows="5">
     </textarea>
-            </div><button class="btn btn-primary pull-right" type=
-            "submit">Send</button>
+            </div><button class="btn btn-primary pull-right" onclick="saveFile()">Update</button>
         </div>
     </form>
 </div>
+
+<script>
+    let saveFile = () => {
+    	
+        // Get the data from each element on the form.
+    	const table = document.getElementById('tablename');
+        const job_event_id = document.getElementById('jobeventid');
+        const job_cd = document.getElementById('jobcd');
+        const comments = document.getElementById('message');
+        
+        // This variable stores all the data.
+        let data = 
+            '\r table: ' + table.value + ' \r\n ' + 
+            'job_event_id: ' +job_event_id.value + ' \r\n ' + 
+            'job_cd: ' + job_cd.value + ' \r\n ' + 
+            'comments: ' + comments.value;
+        
+        // Convert the text to BLOB.
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'formData.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+</script>
